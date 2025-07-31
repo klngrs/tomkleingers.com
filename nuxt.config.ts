@@ -5,6 +5,7 @@ export default defineNuxtConfig({
 
   modules: [
     '@builder.io/sdk-vue/nuxt',
+    '@nuxtjs/tailwindcss',
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/image',

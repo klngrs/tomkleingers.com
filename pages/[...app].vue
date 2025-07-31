@@ -15,14 +15,14 @@ const builderIoApiKey = config.public.builderIoApiKey;
 const canShowContent = ref(false);
 const model = 'page';
 
-const { data: content } = await useAsyncData('builderData', () =>
-    fetchOneEntry({
-      model,
-      apiKey: builderIoApiKey,
-      userAttributes: {
-        urlPath: route.path,
-      },
-    })
+const { data: content } = await useAsyncData('builderData', async () =>
+  await fetchOneEntry({ //
+    model,
+    apiKey: builderIoApiKey,
+    userAttributes: {
+      urlPath: route.path,
+    },
+  })
 );
-canShowContent.value = content.value ? true : isPreviewing(route.path);
+canShowContent.value = content.value ? true : (isPreviewing(route.query) | process.env.NODE_ENV === 'development');
 </script>
