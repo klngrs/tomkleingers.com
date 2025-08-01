@@ -1,6 +1,7 @@
 <template>
   <div v-if="canShowContent">
     <Content :api-key="builderIoApiKey" :model="model" :content="content" />
+    <div>hello page</div>
   </div>
   <div v-else>Content not Found</div>
 </template>
